@@ -45,7 +45,7 @@ export const notes = createSlice({
 
 export function getNotesList(action) {
     return function(dispatch, getState) {
-        fetch("http://localhost:3000/notes")
+        fetch("https://jm-notes-app.fly.dev/notes")
         .then(response => response.json())
         .then(data => dispatch(addNotes(data)))
     }
