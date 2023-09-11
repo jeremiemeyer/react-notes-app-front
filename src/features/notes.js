@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit"
 import axios from "axios"
 import { nanoid } from "@reduxjs/toolkit"
-// import getFolders from "./utils/getFolders.js"
+import getFolders from "../utils/getFolders"
 
 const initialState = {
   items: undefined,
@@ -15,21 +15,6 @@ const initialState = {
     //   id: 2,
     // },
   ],
-}
-
-function getFolders(items) {
-  // Create an empty set to store unique folder names
-  const uniqueFolders = new Set();
-
-  // Iterate through the array of items and add each "folder" property to the set
-  items.forEach(item => {
-    if (item.folder) {
-      uniqueFolders.add(item.folder);
-    }
-  });
-
-  // Convert the set to an array and return it
-  return Array.from(uniqueFolders);
 }
 
 const addNewNoteToDB = async (noteData) => {

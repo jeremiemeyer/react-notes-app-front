@@ -5,8 +5,8 @@ import { editNotes, selectFolderToShow } from "../features/shownotes"
 import SearchBar from "./SearchBar"
 import spinner from "./../assets/spinner.svg"
 import FolderSelect from "./FolderSelect"
-import CreateNoteButton from "./CreateNoteButton"
-import DeleteNoteButton from "./DeleteNoteButton"
+import CreateNoteButton from "./buttons/CreateNoteButton"
+import DeleteNoteButton from "./buttons/DeleteNoteButton"
 
 export default function NotesList() {
   const notes = useSelector((state) => state.notes)
@@ -88,9 +88,9 @@ export default function NotesList() {
       onClick={() =>
         dispatch(editNotes({ title: "", subtitle: "", bodyText: "" }))
       }
-      className="bg-slate-200 w-[400px] "
+      className="bg-slate-200 w-[400px] h-[calc(100vh-40px)] rounded-tl-lg"
     >
-      <div className="fixed bg-slate-200 w-[400px] px-2">
+      <div className="w-[400px] px-2 pb-2">
         <h1 className="text-2xl p-6 font-semibold text-center pb-8 ">
           Mes notes
         </h1>
@@ -101,7 +101,7 @@ export default function NotesList() {
         />
       </div>
 
-      <div className="mt-[220px] overflow-y-auto max-h-[calc(100vh-220px)]">
+      <div className="overflow-y-auto max-h-[calc(100vh-264px)]">
         {hasBeenRetrieved ? content : <img src={spinner} alt="" />}
       </div>
     </div>
