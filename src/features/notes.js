@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit"
 import axios from "axios"
 import { nanoid } from "@reduxjs/toolkit"
-import getFolders from "./../utils/getFolders.js"
+import default as getFolders from "./../utils/getFolders.js"
 
 const initialState = {
   items: undefined,
