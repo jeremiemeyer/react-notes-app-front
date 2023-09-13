@@ -9,8 +9,9 @@ import FolderSelect from "./FolderSelect"
 import { TextField, Button } from "@mui/material"
 import SendIcon from "@mui/icons-material/Send"
 import DoneIcon from "@mui/icons-material/Done"
+import { nanoid } from "@reduxjs/toolkit"
 
-export default function NoteForm({ actionType, onClose }) {
+export default function NoteForm({ actionType, onClose, userData }) {
   const selectedNote = useSelector((state) => state.shownotes.noteToShow)
   const dispatch = useDispatch()
 
@@ -59,6 +60,8 @@ export default function NoteForm({ actionType, onClose }) {
           title: titleValue,
           subtitle: subtitleValue,
           bodyText: bodyTextValue,
+          email: userData.email,
+          id: nanoid(4),
         })
       )
       onClose()
