@@ -37,26 +37,32 @@ function App() {
       } catch (error) {
         setToken(null)
         // navigate to login page
-        return console.log('Token validation error:', error)
+        return console.log("Token validation error:", error)
       }
     }
 
     if (token) {
       isTokenValid()
     }
-
   }, [token])
 
   return (
     <>
       <Routes>
-        <Route
+        <Route path="/login" element={<Login />} />
+        {/* <Route
           path="/login"
           element={!token ? <Login /> : <Navigate to="/" />}
-        />
+        /> */}
         <Route
           path="/"
-          element={token ? <Home userData={userData} setToken={setToken} /> : <Navigate to="/login" />}
+          element={
+            token ? (
+              <Home userData={userData} setToken={setToken} />
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
         />
         <Route path="/register" element={<Register />} />
         <Route path="*" element={<Navigate to="/login" />} />
